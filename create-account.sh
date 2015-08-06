@@ -23,10 +23,10 @@ fi
 
 for ((i=0; i<$last; i++))
 do
-    useradd -u $((i+uid)) -G chrooted -c "${partner[$i]}" sr${partner[$i]}
+    useradd -u $((i+uid)) -G chrooted -c "${partner[$i]}" ${partner[$i]}
     mkdir -p /home/${partner[$i]}
-    chown ${partner[$i]}.${partner[$i]} /home//sr${partner[$i]}
+    chown ${partner[$i]}.${partner[$i]} /home/${partner[$i]}
     pass=$(cat /dev/urandom|tr -dc "a-zA-Z0-9-_\$\?&*@#%^&()+!=|,." | fold -w 9 | head -1)
-    echo "sr${partner[$i]}:${pass}" | chpasswd
-    echo "sr${partner[$i]}:${pass}"
+    echo "${partner[$i]}:${pass}" | chpasswd
+    echo "${partner[$i]}:${pass}"
 done
