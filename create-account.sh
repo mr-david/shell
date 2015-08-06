@@ -3,8 +3,8 @@
 PATH="/usr/sbin:/bin:/usr/bin"
 
 if [ $# -ne 1 ]; then
-        echo "usage: create.sh next-available-uid"
-        exit 1
+    echo "usage: create.sh next-available-uid"
+    exit 1
 fi
 
 uid=$1
